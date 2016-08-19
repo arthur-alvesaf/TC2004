@@ -7,6 +7,8 @@
 using namespace std;
 
 class Computer {
+protected:
+	Computer() {}
 public:
 	virtual void selectComponents() = 0;
 	virtual void assemble() = 0;
@@ -16,7 +18,7 @@ public:
 
 class Laptop : public Computer {
 private:
-	Laptop(){};
+	Laptop(){}
 public:
 	friend class FactoryConcrete;
 	void selectComponents() {
@@ -35,7 +37,7 @@ public:
 
 class Desktop : public Computer {
 private:
-	Desktop(){};
+	Desktop(){}
 public:
 	friend class FactoryConcrete;
 	void selectComponents() {
@@ -54,7 +56,7 @@ public:
 
 class Netbook : public Computer {
 private:
-	Netbook(){};
+	Netbook(){}
 public:
 	friend class FactoryConcrete;
 	void selectComponents() {
@@ -73,7 +75,7 @@ public:
 
 class Tablet : public Computer {
 private:
-	Tablet(){};
+	Tablet(){}
 public:
 	friend class FactoryConcrete;
 	void selectComponents() {
@@ -91,6 +93,8 @@ public:
 };
 
 class Factory {
+protected:
+	Factory() {}
 public:
 	virtual Computer *getComputerType(string compType) = 0;
 
@@ -112,6 +116,8 @@ public:
 };
 
 class FactoryConcrete : public Factory {
+private:
+	FactoryConcrete() {}
 public:
 	Computer *getComputerType(string compType) {
 		Computer *newComp = NULL;
